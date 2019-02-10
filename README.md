@@ -22,6 +22,8 @@ Where `HOST_DEPOT_MOUNT` is the filesystem location where you'd like the contain
 
 For EODN registration purposes, the following information should be set in environment variables passed to the container:
 
+`MAX_MBYTES` - The max storage size the IBP server should use for allocations (in MB). Default is to auto-detect filesystem size and expose all available capacity.
+
 `PUBLIC_HOST` - The publically reachable hostname or IP of the host system or assigned container.
 
 `INSTITUTION` - The institution or organization hosting this depot.
@@ -41,5 +43,5 @@ For EODN registration purposes, the following information should be set in envir
 Example:
 
 ```
-docker run -v /depot:/depot -p 6714:6714 -e PUBLIC_HOST='ibp2.open.sice.indiana.edu' -e INSTITUTION='IU' -e COUNTRY='US' -e ZIPCODE='47494' ibp
+docker run -v /depot:/depot -p 6714:6714 -e PUBLIC_HOST='ibp2.open.sice.indiana.edu' -e INSTITUTION='IU' -e COUNTRY='US' -e ZIPCODE='47404' ibp
 ```
