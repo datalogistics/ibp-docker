@@ -1,0 +1,38 @@
+{"properties": {
+  "configurations": {
+        "ssl_cert": "/etc/periscope/dlt-client.pem",
+        "ssl_key": "/etc/periscope/dlt-client.pem",
+        "probe_defaults": {
+	    "ms_url": "https://dlt.open.sice.indiana.edu:9001",
+	    "collection_schedule":"builtins.simple",
+	    "schedule_params": {"every": 5},
+	    "reporting_params": 8,
+	    "collection_size":10000,
+	    "collection_ttl":1500000
+        },
+        "unis_url": "https://dlt.open.sice.indiana.edu:9000",
+        "use_ssl": "True",
+        "probes": {
+	    "cpu": {
+                "probe_module": "cpu",
+                "kwargs": {"proc_dir": "/proc"}
+	    },
+	    "mem": {
+                "probe_module": "mem",
+                "kwargs": {}
+	    },
+	    "ibp_cmd_line_probe": {
+                "probe_module": "cmd_line_probe",
+                "command": "/usr/local/bin/get_version __HOSTNAME__ 6714",
+                "regex": "Total resources.*Used:\\s+(?P<used>\\d+).*Free:\\s+(?P<free>\\d+).*",
+                "eventTypes": {
+		    "used": "ps:tools:blipp:ibp_server:resource:usage:used",
+		    "free": "ps:tools:blipp:ibp_server:resource:usage:free"
+                }
+	    }
+        }
+    }
+ },
+ "ttl": 600,
+ "accessPoint":	"blipp://__PUBLIC_HOST__"
+}
