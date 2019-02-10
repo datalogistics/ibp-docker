@@ -23,12 +23,19 @@ Where `HOST_DEPOT_MOUNT` is the filesystem location where you'd like the contain
 For EODN registration purposes, the following information should be set in environment variables passed to the container:
 
 `PUBLIC_HOST` - The publically reachable hostname or IP of the host system or assigned container.
-`INSTITUTION' - The institution or organization hosting this depot.
+
+`INSTITUTION` - The institution or organization hosting this depot.
+
 `COUNTRY`     - The hosting country.
+
 `STATE`       - The hosting state.
+
 `CITY`        - The hosting city.
+
 `ZIPCODE`     - The hosting postal code.
+
 `LATITUDE`    - Geographic latitude of the depot.
+
 `LONGITUDE`   - Geographic longitude of the depot.
 
 Example:
